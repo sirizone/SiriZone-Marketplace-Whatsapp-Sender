@@ -46,15 +46,22 @@ class DBService {
         return this.data.subscription;
     }
 
-    updateSubscription(plan) {
+    updateSubscription(plan, durationDays = 7) {
         if (plan === 'premium') {
             this.data.subscription.plan = 'premium';
             this.data.subscription.maxMessages = Infinity;
             this.data.subscription.maxAccounts = Infinity;
+            
+            // Set expiry date
+            const expiry = new Date();
+            expiry.setDate(expiry.getDate() + durationDays);
+            this.data.subscription.expiry = expiry.toISOString();
+            
         } else {
             this.data.subscription.plan = 'free';
             this.data.subscription.maxMessages = 1000;
             this.data.subscription.maxAccounts = 1;
+            this.data.subscription.expiry = null;
         }
         this.save();
         return this.data.subscription;
@@ -86,13 +93,25 @@ class DBService {
         this.save();
     }
 
+    checkExpiry() {
+        if (this.data.subscription.plan === 'premium' && this.data.subscription.expiry) {
+            const expiryDate = new Date(this.data.subscription.expiry);
+            if (new Date() > expiryDate) {
+                console.log('Subscription expired. Reverting to free plan.');
+                this.updateSubscription('free');
+            }
+        }
+    }
+
     canSendMessage() {
+        this.checkExpiry();
         const { plan, messageCount, maxMessages } = this.data.subscription;
         if (plan === 'premium') return true;
         return messageCount < maxMessages;
     }
 
     canAddAccount() {
+        this.checkExpiry();
         const { plan, maxAccounts } = this.data.subscription;
         const currentAccounts = this.data.sessions.length;
         if (plan === 'premium') return true;

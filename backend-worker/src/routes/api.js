@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const campaignController = require('../controllers/campaign');
 const contactController = require('../controllers/contacts');
+const sessionController = require('../controllers/session');
 
 // Middleware to check API Key
 const checkApiKey = (req, res, next) => {
@@ -26,6 +27,7 @@ router.post('/sessions', sessionController.createSession);
 router.delete('/sessions/:id', sessionController.removeSession);
 router.get('/subscription', sessionController.getSubscription);
 router.post('/subscription/upgrade', sessionController.upgradeSubscription);
+router.post('/subscription/payment', sessionController.processPayment);
 
 // Contact Group Routes
 router.get('/contacts/groups', contactController.getGroups);

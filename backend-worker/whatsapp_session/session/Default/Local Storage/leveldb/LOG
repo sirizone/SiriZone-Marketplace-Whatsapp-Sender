@@ -1,0 +1,6 @@
+2026/02/01-17:07:16.000 2e68 Reusing MANIFEST C:\Users\alkhu\Documents\trae_projects\Lara-whatsapp\backend-worker\whatsapp_session\session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/02/01-17:07:16.010 2e68 Recovering log #3
+2026/02/01-17:07:16.015 2e68 Reusing old log C:\Users\alkhu\Documents\trae_projects\Lara-whatsapp\backend-worker\whatsapp_session\session\Default\Local Storage\leveldb/000003.log 
+2026/02/01-17:57:26.303 5c28 Level-0 table #5: started
+2026/02/01-17:57:26.316 5c28 Level-0 table #5: 18181 bytes OK
+2026/02/01-17:57:26.320 5c28 Delete type=0 #3

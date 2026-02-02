@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 // @ts-ignore
 import Papa from 'papaparse';
@@ -13,11 +14,23 @@ type Log = {
   timestamp: string;
 };
 
+type Session = {
+  id: string;
+  status: string;
+  qrCodeUrl: string | null;
+};
+
+type Subscription = {
+  plan: 'free' | 'premium';
+  maxAccounts: number;
+  maxMessages: number;
+  messageCount: number;
+  expiry?: string | null;
+};
+
 type Status = {
-  whatsapp: {
-    status: string;
-    qrCodeUrl: string | null;
-  };
+  sessions?: Session[];
+  subscription?: Subscription;
   campaign: {
     id?: string;
     status: 'idle' | 'running' | 'paused' | 'completed' | 'stopped' | 'scheduled';
@@ -33,6 +46,7 @@ type Status = {
 };
 
 export default function Home() {
+  const router = useRouter();
   // Auth State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -69,7 +83,6 @@ export default function Home() {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [newSessionId, setNewSessionId] = useState('');
   const [selectedSessionId, setSelectedSessionId] = useState(''); // For sending campaign
-  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   const pollTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -176,17 +189,6 @@ export default function Home() {
       fetchStatus();
     } catch (err: any) {
       alert(err.response?.data?.error || 'Failed to remove session');
-    }
-  };
-
-  const upgradeSubscription = async () => {
-    try {
-      await axios.post('/api/worker/subscription/upgrade', { plan: 'premium' });
-      fetchStatus();
-      setShowUpgradeModal(false);
-      alert('Upgraded to Premium!');
-    } catch (err: any) {
-      alert(err.response?.data?.error || 'Failed to upgrade');
     }
   };
 
@@ -487,22 +489,13 @@ export default function Home() {
              </div>
 
              {subscription?.plan !== 'premium' && (
-               showUpgradeModal ? (
-                 <div className="space-y-2">
-                   <p className="text-sm text-gray-600 dark:text-gray-400">Confirm subscription of 87 AED/week?</p>
-                   <div className="flex gap-2">
-                     <button onClick={upgradeSubscription} className="flex-1 bg-green-600 text-white py-2 rounded-lg text-sm">Confirm</button>
-                     <button onClick={() => setShowUpgradeModal(false)} className="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg text-sm">Cancel</button>
-                   </div>
-                 </div>
-               ) : (
-                 <button 
-                   onClick={() => setShowUpgradeModal(true)}
-                   className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 rounded-lg font-medium shadow-sm hover:from-amber-600 hover:to-amber-700 transition-all"
-                 >
-                   Upgrade to Premium (87 AED/wk)
-                 </button>
-               )
+               <button 
+                 onClick={() => router.push('/payment')}
+                 className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-2 rounded-lg font-medium shadow-sm hover:from-amber-600 hover:to-amber-700 transition-all flex items-center justify-center gap-2"
+               >
+                 <Lock size={16} />
+                 Upgrade to Premium (87 AED/wk)
+               </button>
              )}
           </div>
 
