@@ -6,7 +6,9 @@ node_modules
 dist
 build
 coverage
+backend-worker/whatsapp_session
 backend-worker/whatsapp_sessions
+backend-worker/data
 backend-worker/.wwebjs_auth
 backend-worker/.wwebjs_cache
 backend-worker/data.json

@@ -1,6 +1,8 @@
 node_modules
 .env
+whatsapp_session
 whatsapp_sessions
+data
 .wwebjs_auth
 .wwebjs_cache
 logs
