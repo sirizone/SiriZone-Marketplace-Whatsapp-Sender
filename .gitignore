@@ -1,0 +1,13 @@
+node_modules
+.env
+.env.*
+.DS_Store
+.next
+dist
+build
+coverage
+backend-worker/whatsapp_session
+backend-worker/data
+backend-worker/.wwebjs_cache
+frontend-vercel/.next
+frontend-vercel/out
