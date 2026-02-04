@@ -416,7 +416,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4 lg:p-8 transition-colors duration-300">
+      <div className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100 p-4 lg:p-8 transition-colors duration-300">
         <div className="max-w-7xl mx-auto">
           <header className="mb-8 flex justify-between items-center">
             <div className="flex flex-col">
@@ -500,7 +500,7 @@ export default function Home() {
           </div>
 
           {/* Accounts Card */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <div className="bg-white dark:bg-black p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
             <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">WhatsApp Accounts</h2>
             
             <div className="space-y-4 mb-4">
@@ -728,7 +728,7 @@ export default function Home() {
 
         {/* Middle Column: Message Editor */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 h-full">
+          <div className="bg-white dark:bg-black p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 h-full">
             <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Compose Message</h2>
             
             <div className="space-y-4">
@@ -849,7 +849,7 @@ export default function Home() {
 
         {/* Right Column: Live Logs */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 h-full flex flex-col">
+          <div className="bg-white dark:bg-black p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 h-full flex flex-col">
             <h2 className="text-xl font-semibold mb-4 flex justify-between items-center text-gray-900 dark:text-white">
               <span>Campaign Status</span>
               <span className={`text-sm px-2 py-1 rounded ${

@@ -134,10 +134,14 @@ class SessionManager extends EventEmitter {
         const savedSessions = db.getSessions();
         if (savedSessions.length === 0) {
             // Create default session if none exists
-            this.createSession('default');
+            this.createSession('session_02');
         } else {
             savedSessions.forEach(id => {
-                this.createSession(id);
+                try {
+                    this.createSession(id);
+                } catch (err) {
+                    console.error(`Failed to restore session ${id}:`, err.message);
+                }
             });
         }
     }
@@ -147,7 +151,8 @@ class SessionManager extends EventEmitter {
             return this.sessions.get(id);
         }
 
-        if (!db.canAddAccount() && !this.sessions.has(id)) {
+        const isRestoring = db.getSessions().includes(id);
+        if (!isRestoring && !db.canAddAccount()) {
             throw new Error('Maximum accounts reached. Upgrade to Premium.');
         }
 
