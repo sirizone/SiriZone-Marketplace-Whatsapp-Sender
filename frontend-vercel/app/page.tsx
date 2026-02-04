@@ -385,8 +385,8 @@ export default function Home() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md border border-gray-100">
           <div className="flex justify-center mb-6">
-            <div className="bg-blue-100 p-3 rounded-full">
-              <Lock className="w-8 h-8 text-blue-600" />
+            <div className="bg-amber-100 p-3 rounded-full">
+              <Lock className="w-8 h-8 text-amber-600" />
             </div>
           </div>
           <h1 className="text-2xl font-bold text-center mb-2">Welcome Back</h1>
@@ -397,14 +397,14 @@ export default function Home() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-amber-500 outline-none"
                 placeholder="Password"
                 autoFocus
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="w-full bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
             >
               Access Dashboard
             </button>
@@ -423,14 +423,14 @@ export default function Home() {
               <div className="h-16 lg:h-20 relative flex items-center">
                   {/* Light Mode Logo */}
                   <img 
-                    src="/sirizone-light.svg?v=2" 
-                    alt="Sirizone Marketplace" 
+                    src="/ecomerco-light.svg?v=2" 
+                    alt="ecomerco Marketplace" 
                     className="h-full w-auto block dark:hidden object-contain"
                   />
                   {/* Dark Mode Logo */}
                   <img 
-                    src="/sirizone-dark.svg?v=2" 
-                    alt="Sirizone Marketplace" 
+                    src="/ecomerco-dark.svg?v=2" 
+                    alt="ecomerco Marketplace" 
                     className="h-full w-auto hidden dark:block object-contain"
                   />
                </div>
@@ -475,7 +475,7 @@ export default function Home() {
                    </div>
                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                       <div 
-                        className="bg-blue-600 h-2 rounded-full transition-all" 
+                        className="bg-amber-600 h-2 rounded-full transition-all" 
                         style={{ width: `${Math.min(((subscription?.messageCount || 0) / (subscription?.maxMessages || 1000)) * 100, 100)}%` }}
                       ></div>
                    </div>
@@ -537,11 +537,11 @@ export default function Home() {
                  placeholder="New Account ID" 
                  value={newSessionId}
                  onChange={(e) => setNewSessionId(e.target.value)}
-                 className="flex-1 px-3 py-2 border rounded-lg text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
+                 className="flex-1 px-3 py-2 border rounded-lg text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white outline-none focus:ring-2 focus:ring-amber-500"
                />
                <button 
                  onClick={createSession}
-                 className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                 className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-700 transition-colors"
                >
                  Add
                </button>
@@ -558,32 +558,32 @@ export default function Home() {
                 
                 <div className="flex mb-4 border-b dark:border-gray-700">
                   <button 
-                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'manual' ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'manual' ? 'border-b-2 border-amber-600 text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
                     onClick={() => { setActiveTab('manual'); setParsedContacts([]); }}
                   >
                     Manual
                   </button>
                   <button 
-                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'csv' ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'csv' ? 'border-b-2 border-amber-600 text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
                     onClick={() => { setActiveTab('csv'); setParsedContacts([]); }}
                   >
                     CSV Upload
                   </button>
                   <button 
-                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'txt' ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'txt' ? 'border-b-2 border-amber-600 text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
                     onClick={() => { setActiveTab('txt'); setParsedContacts([]); }}
                   >
                     TXT Upload
                   </button>
                   <button 
-                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'groups' ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
+                    className={`pb-2 px-4 text-sm font-medium ${activeTab === 'groups' ? 'border-b-2 border-amber-600 text-amber-600 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'}`}
                     onClick={() => { setActiveTab('groups'); setParsedContacts([]); setSelectedGroups([]); }}
                   >
                     Groups
                   </button>
                 </div>
 
-                <div className="bg-blue-50 text-blue-800 text-xs p-3 rounded mb-4">
+                <div className="bg-amber-50 text-amber-800 text-xs p-3 rounded mb-4">
                   <strong>Format Tip:</strong> Use International Format (Country Code + Number). <br/>
                   Example: <code>15551234567</code> (USA), <code>447700900123</code> (UK). <br/>
                   Symbols like <code>+</code>, <code>-</code>, <code>( )</code> are automatically removed.
@@ -593,7 +593,7 @@ export default function Home() {
                    <textarea
                     value={manualInput}
                     onChange={handleManualInput}
-                    className="w-full h-32 border rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500"
+                    className="w-full h-32 border rounded-lg p-3 text-sm focus:ring-2 focus:ring-amber-500 outline-none resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500"
                     placeholder="15551234567&#10;447700900123"
                   />
                 )}
@@ -604,7 +604,7 @@ export default function Home() {
                       type="file"
                       accept=".csv"
                       onChange={handleCsvUpload}
-                      className="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 file:dark:bg-blue-900 file:dark:text-blue-200 hover:file:dark:bg-blue-800"
+                      className="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 file:dark:bg-amber-900 file:dark:text-amber-200 hover:file:dark:bg-amber-800"
                     />
                   </div>
                 )}
@@ -615,7 +615,7 @@ export default function Home() {
                       type="file"
                       accept=".txt"
                       onChange={handleTxtUpload}
-                      className="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 file:dark:bg-blue-900 file:dark:text-blue-200 hover:file:dark:bg-blue-800"
+                      className="block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 file:dark:bg-amber-900 file:dark:text-amber-200 hover:file:dark:bg-amber-800"
                     />
                   </div>
                 )}
@@ -624,7 +624,7 @@ export default function Home() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center mb-2">
                        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">Select Groups</h3>
-                       <button onClick={fetchGroups} className="text-blue-600 hover:text-blue-800">
+                       <button onClick={fetchGroups} className="text-amber-600 hover:text-amber-800">
                          <RefreshCw size={14} />
                        </button>
                     </div>
@@ -639,7 +639,7 @@ export default function Home() {
                                 type="checkbox" 
                                 checked={selectedGroups.includes(g.name)}
                                 onChange={() => handleGroupToggle(g.name)}
-                                className="rounded text-blue-600 dark:bg-gray-600 dark:border-gray-500"
+                                className="rounded text-amber-600 dark:bg-gray-600 dark:border-gray-500"
                               />
                               <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{g.name}</span>
                               <span className="text-xs text-gray-500 dark:text-gray-400">({g.count})</span>
@@ -669,7 +669,7 @@ export default function Home() {
                         {!showSaveGroup ? (
                           <button 
                             onClick={() => setShowSaveGroup(true)}
-                            className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 font-medium"
+                            className="flex items-center gap-2 text-sm text-amber-600 hover:text-amber-800 font-medium"
                           >
                             <Save size={16} /> Save as Group
                           </button>
@@ -684,7 +684,7 @@ export default function Home() {
                             />
                             <button 
                               onClick={saveCurrentContactsAsGroup}
-                              className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
+                              className="bg-amber-600 text-white px-3 py-1 rounded text-sm hover:bg-amber-700"
                             >
                               Save
                             </button>
@@ -709,7 +709,7 @@ export default function Home() {
                     type="number" 
                     value={delay.min}
                     onChange={e => setDelay(d => ({ ...d, min: Number(e.target.value) }))}
-                    className="w-20 px-3 py-2 border rounded-lg text-center text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600"
+                    className="w-20 px-3 py-2 border rounded-lg text-center text-sm focus:ring-2 focus:ring-amber-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600"
                     placeholder="Min"
                   />
                   <span className="self-center text-gray-400 dark:text-gray-500">-</span>
@@ -717,7 +717,7 @@ export default function Home() {
                     type="number" 
                     value={delay.max}
                     onChange={e => setDelay(d => ({ ...d, max: Number(e.target.value) }))}
-                    className="w-20 px-3 py-2 border rounded-lg text-center text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600"
+                    className="w-20 px-3 py-2 border rounded-lg text-center text-sm focus:ring-2 focus:ring-amber-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600"
                     placeholder="Max"
                   />
                 </div>
@@ -737,7 +737,7 @@ export default function Home() {
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full h-48 border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 outline-none resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500"
+                  className="w-full h-48 border rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500"
                   placeholder="Type your message here..."
                 />
               </div>
@@ -746,7 +746,7 @@ export default function Home() {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Attach Media / Voice Note</label>
                 <div className="border-2 border-dashed rounded-lg p-6 text-center hover:bg-gray-50 dark:hover:bg-gray-700 dark:border-gray-600 transition-colors">
                   {isUploading ? (
-                    <div className="flex items-center justify-center text-blue-600">
+                    <div className="flex items-center justify-center text-amber-600">
                       <RefreshCw className="animate-spin mr-2" /> Uploading...
                     </div>
                   ) : mediaUrl ? (
@@ -797,7 +797,7 @@ export default function Home() {
                  <select 
                    value={selectedSessionId} 
                    onChange={(e) => setSelectedSessionId(e.target.value)}
-                   className="w-full px-3 py-2 border rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 outline-none focus:ring-2 focus:ring-blue-500"
+                   className="w-full px-3 py-2 border rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-200 dark:border-gray-600 outline-none focus:ring-2 focus:ring-amber-500"
                  >
                     <option value="">Auto (Any Connected)</option>
                     {sessions.filter(s => s.status === 'CONNECTED').map(s => (
@@ -830,7 +830,7 @@ export default function Home() {
                     onClick={startCampaign} 
                     disabled={!parsedContacts.length || !sessions.some(s => s.status === 'CONNECTED')}
                     className={`flex-1 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 text-white ${
-                      !sessions.some(s => s.status === 'CONNECTED') ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+                      !sessions.some(s => s.status === 'CONNECTED') ? 'bg-gray-400 cursor-not-allowed' : 'bg-amber-600 hover:bg-amber-700'
                     }`}
                   >
                     <Play /> Start Campaign
@@ -867,7 +867,7 @@ export default function Home() {
                 </div>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
                   <div 
-                    className="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full transition-all duration-500" 
+                    className="bg-amber-600 dark:bg-amber-500 h-2.5 rounded-full transition-all duration-500" 
                     style={{ width: `${(status.campaign.progress.sent / status.campaign.progress.total) * 100}%` }}
                   ></div>
                 </div>
@@ -898,3 +898,4 @@ export default function Home() {
     </div>
   );
 }
+

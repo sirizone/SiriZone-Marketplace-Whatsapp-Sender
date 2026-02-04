@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" fill="none">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; font-size: 60px; }
+  </style>
+  <text x="10" y="60" class="text" fill="#FFC107">e</text>
+  <text x="45" y="60" class="text" fill="#FFFFFF">comerco</text>
+</svg>
