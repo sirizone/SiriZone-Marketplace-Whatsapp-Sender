@@ -3,7 +3,6 @@ node_modules
 whatsapp_session
 whatsapp_sessions
 data
-data.json
 .wwebjs_auth
 .wwebjs_cache
 logs

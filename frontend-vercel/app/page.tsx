@@ -275,7 +275,7 @@ export default function Home() {
     if (!isAuthenticated) return;
     try {
       const res = await axios.get('/api/worker/contacts/groups');
-      setGroups(res.data);
+      setGroups(res.data.groups || []);
     } catch (err) {
       console.error('Failed to fetch groups', err);
     }
