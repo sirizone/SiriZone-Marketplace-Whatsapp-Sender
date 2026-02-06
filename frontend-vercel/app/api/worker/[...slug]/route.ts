@@ -15,6 +15,7 @@ async function proxyRequest(request: Request, { params }: { params: { slug: stri
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': WORKER_API_KEY || '',
+        'ngrok-skip-browser-warning': 'true',
       },
       body: body ? JSON.stringify(body) : undefined,
     });
